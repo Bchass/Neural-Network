@@ -1,6 +1,9 @@
 # Neural-Network outputing training data
 
-import numpy as np 
+import numpy as np
+import time 
+
+start = time.time()
 
 # sigmoid function
 def sigmoid(x,dirv=False):
@@ -39,5 +42,11 @@ for iter in range (600000):
     # update the weights
     w1 += np.dot(layer0.T,layer1_delta)
 
+end = time.time()
+elapsed = end - start
+
 print("Output data after training:")
+print("\n")
 print(layer1)
+print("\n")
+print(elapsed)
