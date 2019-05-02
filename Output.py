@@ -9,13 +9,13 @@ def sigmoid(x,dirv=False):
     return 1/(1+np.exp(-x))
 
 # input data
-x = np.array ([ [0,0,1],
-                [0,1,1],
-                [1,0,1],
-                [1,1,1] ])
+x = np.array ([  [0,0,1],
+                 [0,1,1],
+                 [1,0,1],
+                 [1,1,1] ])
 
 # output data
-y = np.array ([[1,0,0,1]]).T
+y = np.array([[0,0,1,1]]).T
 
 # seeds random numbers to make calculations
 np.random.seed(1)
