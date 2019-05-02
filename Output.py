@@ -37,7 +37,7 @@ for iter in range (10000):
     layer1_delta = layer1_e * sigmoid(layer1,True)
 
     # update the weights
-    w1 += np.dot(layer1.T,layer1_delta)
+    w1 += np.dot(layer0.T,layer1_delta)
 
 print("Output data after training:")
 print(layer1)
