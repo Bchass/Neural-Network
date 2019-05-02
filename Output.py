@@ -24,7 +24,7 @@ np.random.seed(1)
 w1 = 2*np.random.random((3,1)) - 1
 
 # how many times to loop through the given data
-for iter in range (10000):
+for iter in range (600000):
 
     # forward prop
     layer0 = x
