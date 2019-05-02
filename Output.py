@@ -4,7 +4,7 @@ import numpy as np
 
 # sigmoid function
 def sigmoid(x,dirv=False):
-    if (dirv==True):
+    if(dirv==True):
         return x*(1-x)
     return 1/(1+np.exp(-x))
 
@@ -39,5 +39,5 @@ for iter in range (10000):
     # update the weights
     w1 += np.dot(layer1.T,layer1_delta)
 
-    print("Output data after training:")
-    print(layer1)
+print("Output data after training:")
+print(layer1)
