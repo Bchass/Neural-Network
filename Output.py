@@ -16,3 +16,28 @@ x = np.array ([ [0,0,1],
 
 # output data
 y = np.array ([[1,0,0,1]]).T
+
+# seeds random numbers to make calculations
+np.random.seed(1)
+
+# initalize weights with a mean of 0
+w1 = 2*np.random.random((3,1)) - 1
+
+# how many times to loop through the given data
+for iter in range (10000):
+
+    # forward prop
+    layer0 = x
+    layer1 = sigmoid(np.dot(layer0,w1))
+
+    # calculate error
+    layer1_e = y - layer1
+
+    # calculate error based off slope
+    layer1_delta = layer1_e * sigmoid(layer1,True)
+
+    # update the weights
+    w1 += np.dot(layer1.T,layer1_delta)
+
+    print("Output data after training:")
+    print(layer1)
