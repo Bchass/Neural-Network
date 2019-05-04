@@ -6,8 +6,7 @@ import numpy as np
 def sigmoid(x,dirv=False):
     if(dirv==True):
         return x*(1-x)
-
-    return 1/(1*np.exp(-x))
+    return 1/(1+np.exp(-x))
 
 # input data
 x = np.array( [[0,0,1],
