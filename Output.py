@@ -37,7 +37,7 @@ w2 = 2*np.random.random((3,1)) - 1
 # how many times to loop through the given data
 for iter in range (400000):
 
-    # forward prop
+    # forward prop through layers
     layer0 = x
     layerx = x1
     layer1 = sigmoid(np.dot(layer0,w1))
