@@ -1,7 +1,9 @@
 # Neural-Network calculating errors
 
 import numpy as np 
+import time
 
+start = time.time()
 # sigmoid function
 def sigmoid(x,dirv=False):
     if(dirv==True):
@@ -26,7 +28,8 @@ np.random.seed(1)
 syn0 = 2*np.random.random((3,4)) - 1
 syn1 = 2*np.random.random((4,1)) - 1
 
-for j in range(1000):
+# loop through to get a smaller error
+for j in range(100000):
 
     # Feed forward through layers
     layer0 = x
@@ -37,13 +40,16 @@ for j in range(1000):
     layer2e = y - layer2
 
     if (j% 10000) == 0:
-        print("Error:" + str(np.mean(np.abs(layer2e))))
+        print ("Error:" + str(np.mean(np.abs(layer2e))))
 
     layer2d = layer2e*sigmoid(layer2,dirv=True)
 
     layer1e = layer2d.dot(syn1.T)
 
-    layer1d = layer1e*sigmoid(layer1,dirv=True)
+    layer1d = layer1e * sigmoid(layer1,dirv=True)
 
     syn1 += layer1.T.dot(layer2d)
     syn0 += layer0.T.dot(layer1d)
+    end = time.time()
+    elapsed = end - start
+print(elapsed)
