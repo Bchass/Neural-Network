@@ -20,3 +20,8 @@ x = np.array([ [0,1],
 # output data
 y = np.array ([[0,0,1,1]]).T
 
+# random calculations
+np.random.seed(1)
+
+
+
