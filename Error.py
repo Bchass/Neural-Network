@@ -27,7 +27,7 @@ y = np.array ([[0],
              [0]])
 
 for alpha in alphas:
-    print("\nTraining with alpha:" + str(alpha))
+    print("\nTraining with alpha: " + str(alpha))
     np.random.seed(1)
 
 # initialize weights with the mean of 0
@@ -43,10 +43,10 @@ for j in range(60000):
     layer2 = sigmoid(np.dot(layer1,syn1))
 
     # cacl error
-    layer2e = y - layer2
+    layer2e = layer2 - y
 
     if (j% 10000) == 0:
-        print ("Error: "+ str(j) +" iterations:" +
+        print ("Error: "+ str(j) +" iterations: " +
            str(np.mean(np.abs(layer2e))))
 
     # what direction is the target value?
@@ -57,6 +57,5 @@ for j in range(60000):
 
     layer1d = layer1e * sigmoid_to_dirv(layer1)
 
-    syn1 -= alpha * layer1.T.dot(layer2d)
-    syn0 -= alpha * layer0.T.dot(layer1d)
- 
+    syn1 -= alpha * (layer1.T.dot(layer2d))
+    syn0 -= alpha * (layer0.T.dot(layer1d))
