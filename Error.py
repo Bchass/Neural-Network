@@ -6,10 +6,13 @@ import numpy as np
 alphas = [0.001,0.01,0.1,1,10,100,1000]
 
 # sigmoid function
-def sigmoid(x,dirv=False):
-    if(dirv==True):
-        return x*(1-x)
-    return 1/(1+np.exp(-x))
+def sigmoid(x):
+    output = 1/(1+np.exp(-x))
+    return output
+
+# output of sigmoid to driv
+def sigmoid_to_dirv(output):
+    return output*(1-output)
 
 # input data
 x = np.array( [[0,0,1],
