@@ -3,6 +3,7 @@
 import numpy as np
 
 alphas = [0.001,0.01,0.1,1,10,100,1000]
+hiddenSize = 32
 
 # sigmoid function
 def sigmoid(x):
@@ -30,8 +31,8 @@ for alpha in alphas:
     np.random.seed(1)
 
     # initialize weights randomly
-    weight0 = 2*np.random.random((3,4)) - 1
-    weight1 = 2*np.random.random((4,1)) - 1
+    weight0 = 2*np.random.random((3,hiddenSize)) - 1
+    weight1 = 2*np.random.random((hiddenSize,1)) - 1
 
     for j in range(60000):
 
