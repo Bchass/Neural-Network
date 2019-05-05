@@ -42,7 +42,7 @@ for iter in range(10000):
     # update the weights
     weight1 -= weight1_dirv
 
-print("Output after training:")
+print("Output data after training:")
 print(layer1)
 
 
