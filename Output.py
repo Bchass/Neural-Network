@@ -1,4 +1,5 @@
 # Neural-Network outputing training data
+# Two different datasets output
 
 import numpy as np
 import time 
