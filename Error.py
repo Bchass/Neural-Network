@@ -1,6 +1,10 @@
 # Neural-Network calculating errors
 
 import numpy as np 
+
+# alpha param 
+alphas = [0.001,0.01,0.1,1,10,100,1000]
+
 # sigmoid function
 def sigmoid(x,dirv=False):
     if(dirv==True):
