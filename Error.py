@@ -1,9 +1,6 @@
 # Neural-Network calculating errors
 
 import numpy as np 
-import time
-
-start = time.time()
 # sigmoid function
 def sigmoid(x,dirv=False):
     if(dirv==True):
@@ -50,6 +47,4 @@ for j in range(100000):
 
     syn1 += layer1.T.dot(layer2d)
     syn0 += layer0.T.dot(layer1d)
-    end = time.time()
-    elapsed = end - start
-print(elapsed)
+ 
