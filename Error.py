@@ -1,8 +1,7 @@
 # Neural-Network calculating errors
 
-import numpy as np 
+import numpy as np
 
-# alpha param 
 alphas = [0.001,0.01,0.1,1,10,100,1000]
 
 # sigmoid function
@@ -10,52 +9,51 @@ def sigmoid(x):
     output = 1/(1+np.exp(-x))
     return output
 
-# output of sigmoid to driv
+# output of sigmoid
 def sigmoid_to_dirv(output):
     return output*(1-output)
 
 # input data
-x = np.array( [[0,0,1],
-               [0,1,1],
-               [1,0,1],
-               [1,1,1]])
+x = np.array([[0,0,1],
+             [0,1,1],
+             [1,0,1],
+             [1,1,1]])
 
 # output data
-y = np.array ([[0],
+y = np.array([[0],
              [1],
              [1],
              [0]])
 
 for alpha in alphas:
-    print("\nTraining with alpha: " + str(alpha))
+    print ("\nTraining with alpah:" + str(alpha))
     np.random.seed(1)
 
-# initialize weights with the mean of 0
-syn0 = 2*np.random.random((3,4)) - 1
-syn1 = 2*np.random.random((4,1)) - 1
+    # initialize weights randomly
+    weight0 = 2*np.random.random((3,4)) - 1
+    weight1 = 2*np.random.random((4,1)) - 1
 
-# loop through to get a smaller error
-for j in range(60000):
+    for j in range(60000):
 
-    # Feed forward through layers
-    layer0 = x
-    layer1 = sigmoid(np.dot(layer0,syn0))
-    layer2 = sigmoid(np.dot(layer1,syn1))
+        # Feed forward prop
+        layer0 = x
+        layer1 = sigmoid(np.dot(layer0,weight0))
+        layer2 = sigmoid(np.dot(layer1,weight1))
 
-    # cacl error
-    layer2e = layer2 - y
+        # calc error
+        layer2_error = layer2 - y
 
-    if (j% 10000) == 0:
-        print ("Error: "+ str(j) +" iterations: " +
-           str(np.mean(np.abs(layer2e))))
+        if (j% 10000) == 0:
+            print ("Error after "+str(j)+" iterations:" + str(np.mean(np.abs(layer2_error))))
 
-    # what direction is the target value?
-    layer2d = layer2e * sigmoid_to_dirv(layer2)
+        # direction of target value
+        layer2_delta = layer2_error*sigmoid_to_dirv(layer2)
 
-    # layer1 value to layer2 error?
-    layer1e = layer2d.dot(syn1.T)
+        # layer1 value to layer2 value
+        layer1_error = layer2_delta.dot(weight1.T)
 
-    layer1d = layer1e * sigmoid_to_dirv(layer1)
+        # direction of layer1 target value
+        layer1_delta = layer1_error * sigmoid_to_dirv(layer1)
 
-    syn1 -= alpha * (layer1.T.dot(layer2d))
-    syn0 -= alpha * (layer0.T.dot(layer1d))
+        weight1 -= alpha * (layer1.T.dot(layer2_delta))
+        weight0 -= alpha * (layer0.T.dot(layer1_delta))
