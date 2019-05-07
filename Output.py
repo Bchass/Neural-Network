@@ -59,10 +59,7 @@ for iter in range (400000):
 end = time.time()
 elapsed = end - start
 
-print("Output data after training:")
-print("\n")
-print(layer1)
-print("\n")
-print(layer2)
-print("\n")
-print(elapsed)
+print("\nOutput data after training:")
+print("\n" + str(layer1))
+print("\n" + str(layer2))
+print("\n" + str(elapsed))
