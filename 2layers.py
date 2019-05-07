@@ -44,7 +44,3 @@ for iter in range(10000):
 
 print("Output data after training:")
 print(layer1)
-
-
-
-
