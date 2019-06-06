@@ -27,7 +27,7 @@ y = np.array([[0],
              [0]])
 
 for alpha in alphas:
-    print ("\nTraining with alpah:" + str(alpha))
+    print ("\nTraining with alpha:" + str(alpha))
     np.random.seed(1)
 
     # initialize weights randomly
