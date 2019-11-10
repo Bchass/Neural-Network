@@ -3,12 +3,16 @@
 import numpy as np
 import matplotlib.colors
 import matplotlib.pyplot as plt
-from sklearn.modle_selection import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, mean_sqaured_error
 from tqdm import tqdm_notebook
 
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.datasets import make_blobs
+
+from collections import OrderedDict
+
+cmaps = OrderedDict()
 
 # Color map
 cmaps['Qualitative (2)'] = [
@@ -27,7 +31,7 @@ plt.show()
 labels_orig = labels
 labels = np.mod(labels_orig, 2)
 plt.scatter(data[:0], data[:,1], c=labels,cmap=cmaps)
-plt.show()
+plt.show() 
 
 #split binary data
 X_train, X_val, Y_val = train_test_split(data, labels, strtify=labels, random_state=0)
