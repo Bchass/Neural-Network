@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.colors
 import matplotlib.pyplot as plt
 from sklearn.modle_selection import train_test_split
-from skleanrn.metrics import accuracy_score, mean_sqaured_error
+from sklearn.metrics import accuracy_score, mean_sqaured_error
 from tqdm import tqdm_notebook
 
 from sklearn.preprocessing import OneHotEncoder
