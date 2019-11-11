@@ -10,28 +10,21 @@ from tqdm import tqdm_notebook
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.datasets import make_blobs
 
-from collections import OrderedDict
 
-cmaps = OrderedDict()
-
-# Color map
-cmaps['Sequential'] = [
-            'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
-            'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
-            'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']
+my_cmap = matplotlib.colors.LinearSegmentedColormap.from_list('',["red", "blue", "green"])
 
 # Generate observations, 4 labels - multi class
 data, labels = make_blobs(n_samples=1000, centers=4, n_features=2, random_state=0)
 print(data.shape, labels.shape)
 
 #visual for the data
-plt.scatter(data[:,0], data[:,1], c=labels, cmap=cmaps)
+plt.scatter(data[:,0], data[:,1], c=labels, cmap=my_cmap)
 plt.show()
 
 #multi-class to binary
 labels_orig = labels
 labels = np.mod(labels_orig, 2)
-plt.scatter(data[:0], data[:,1], c=labels,cmap=cmaps)
+plt.scatter(data[:0], data[:,1], c=labels,cmap=my_cmap)
 plt.show() 
 
 #split binary data
